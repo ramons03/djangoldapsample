@@ -12,15 +12,19 @@ from __future__ import unicode_literals
 from ldapdb.models.fields import (CharField, ImageField, ListField,
                                   IntegerField)
 import ldapdb.models
+from django.conf import settings
 
+LDAP_BASE_DN = getattr(settings, "LDAP_BASE_DN", None)
+LDAP_OBJECT_CLASSES = getattr(settings, "LDAP_OBJECT_CLASSES", None)
 
 class LdapUser(ldapdb.models.Model):
     """
     Class for representing an LDAP user entry.
     """
     # LDAP meta-data
-    base_dn = "ou=people,dc=planetexpress,dc=com"
-    object_classes = ['inetOrgPerson']
+    base_dn = LDAP_BASE_DN
+    object_classes = LDAP_OBJECT_CLASSES
+
 
     # inetOrgPerson
     first_name = CharField(db_column='givenName', verbose_name="Prime name")
@@ -52,8 +56,9 @@ class LdapGroup(ldapdb.models.Model):
     Class for representing an LDAP group entry.
     """
     # LDAP meta-data
-    base_dn = "ou=people,dc=planetexpress,dc=com"
-    object_classes = ['inetOrgPerson']
+    base_dn = LDAP_BASE_DN
+    object_classes = LDAP_OBJECT_CLASSES
+
 
     # posixGroup attributes
     gid = IntegerField(db_column='gidNumber', unique=True)

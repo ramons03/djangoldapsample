@@ -95,8 +95,11 @@ DATABASES = {
     'ldap': {
         'ENGINE': 'ldapdb.backends.ldap',
         'NAME': 'ldap://172.17.0.2',
+        #'NAME':'ldap://ldap.forumsys.com',
         'USER': 'cn=admin,dc=planetexpress,dc=com',
+        #'USER':'cn=read-only-admin,dc=example,dc=comm',
         'PASSWORD': 'GoodNewsEveryone',
+        #'PASSWORD':'password'
         # 'TLS': True,
         #'CONNECTION_OPTIONS': {
         #    ldap.OPT_X_TLS_DEMAND: True,
@@ -104,6 +107,11 @@ DATABASES = {
     }
 }
 DATABASE_ROUTERS = ['ldapdb.router.Router']
+
+
+LDAP_BASE_DN = 'ou=people,dc=planetexpress,dc=com'
+#LDAP_OBJECT_CLASSES = ['posixAccount', 'shadowAccount', 'inetOrgPerson']
+LDAP_OBJECT_CLASSES = ['inetOrgPerson']
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
