@@ -110,7 +110,7 @@ DATABASE_ROUTERS = ['ldapdb.router.Router']
 
 
 LDAP_BASE_DN = 'ou=people,dc=planetexpress,dc=com'
-#LDAP_OBJECT_CLASSES = ['posixAccount', 'shadowAccount', 'inetOrgPerson']
+
 LDAP_OBJECT_CLASSES = ['inetOrgPerson']
 
 # Password validation
