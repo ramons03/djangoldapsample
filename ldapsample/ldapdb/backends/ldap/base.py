@@ -246,7 +246,8 @@ class DatabaseWrapper(BaseDatabaseWrapper):
     def get_new_connection(self, conn_params):
         """Build a connection from its parameters."""
         #connection = ldap.initialize(conn_params['uri'], bytes_mode=False)
-        connection = ldap.open("172.17.0.2")
+        #connection = ldap.open("172.17.0.2")
+        connection = ldap.open(conn_params['uri'])
 
         options = conn_params['options']
         for opt, value in options.items():

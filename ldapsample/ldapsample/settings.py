@@ -94,7 +94,7 @@ DATABASES = {
     },
     'ldap': {
         'ENGINE': 'ldapdb.backends.ldap',
-        'NAME': 'ldap://172.17.0.2',
+        'NAME': '172.17.0.2',
         #'NAME':'ldap://ldap.forumsys.com',
         'USER': 'cn=admin,dc=planetexpress,dc=com',
         #'USER':'cn=read-only-admin,dc=example,dc=comm',
